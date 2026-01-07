@@ -14,40 +14,65 @@
         .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
         .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)); }
         .swiper-pagination-bullet-active { background: #f97316 !important; }
+        /* Custom mobile menu transition */
+        #mobile-menu { transition: all 0.3s ease-in-out; }
+        #mobile-menu.hidden { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-   <div class="bg-blue-950 text-white py-2 px-6 md:px-16 flex justify-between items-center text-xs md:text-sm">
-    <div class="flex gap-4">
-        <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4"></i> 03464012004</span>
-        <span class="hidden md:flex items-center gap-2"><i data-lucide="mail" class="w-4"></i> skylineadventuretours@gmail.com</span>
-    </div>
-
-    
+    <div class="bg-blue-950 text-white py-2 px-6 md:px-16 flex justify-between items-center text-xs md:text-sm">
+        <div class="flex gap-4">
+            <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4"></i> 03554242143</span>
+            <span class="hidden md:flex items-center gap-2"><i data-lucide="mail" class="w-4"></i> skylineadventuretours@gmail.com</span>
+        </div>
 
         <div class="flex gap-4 border-l border-white/20 pl-4">
-            <a href="#" class="hover:text-orange-400"><i data-lucide="facebook" class="w-4"></i></a>
+            <a href="https://www.facebook.com/share/16h8ZVbxQ7/" class="hover:text-orange-400"><i data-lucide="facebook" class="w-4"></i></a>
             <a href="#" class="hover:text-orange-400"><i data-lucide="instagram" class="w-4"></i></a>
+            <a href="https://www.tiktok.com/@sat_skardu?_r=1&_t=ZS-92qqXxRy45U" class="hover:text-orange-400"><i data-lucide="music-2" class="w-4"></i></a>
         </div>
     </div>
-</div>
-
 
     <nav class="sticky top-0 z-50 glass-nav shadow-sm py-4 px-6 md:px-16 flex justify-between items-center">
-        <div class="text-xl md:text-2xl font-extrabold tracking-tighter text-blue-950">
-            SKYLINE<span class="text-orange-500">ADVENTURE TOURS</span>
-        </div>
+        <div class="flex items-center gap-3">
+    <img src="img/favicon.png" alt="Skyline Adventure Tours Logo" class="h-12 md:h-16 w-auto object-contain">
+    <div class="hidden sm:block text-lg md:text-xl font-extrabold tracking-tighter text-blue-950 leading-none">
+        SKYLINE<br><span class="text-orange-500 text-xs md:text-sm tracking-[0.2em] uppercase">Adventure Tours</span>
+    </div>
+</div>
+        
         <div class="hidden md:flex gap-8 font-semibold">
             <a href="#" class="hover:text-orange-500 transition">Home</a>
             <a href="#about" class="hover:text-orange-500 transition">About Us</a>
             <a href="#tours" class="hover:text-orange-500 transition">Tours</a>
             <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
         </div>
-        <button class="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-200">
-            Book Now
-        </button>
+
+        <div class="flex items-center gap-4">
+            <button class="hidden sm:block bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-200">
+                Book Now
+            </button>
+            
+            <button id="menu-btn" class="md:hidden text-blue-950 p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
     </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-white p-8 md:hidden">
+        <div class="flex justify-between items-center mb-12">
+            <div class="text-xl font-extrabold text-blue-950">SKYLINE</div>
+            <button id="close-btn"><i data-lucide="x" class="w-8 h-8"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-2xl font-bold text-blue-950">
+            <a href="#" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About Us</a>
+            <a href="#tours" class="mobile-link">Tours</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <button class="mt-4 bg-orange-500 text-white py-4 rounded-xl">Book Your Tour</button>
+        </div>
+    </div>
 
     <section class="relative h-[85vh] flex items-center justify-center text-white overflow-hidden">
         <img src="img/hero.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Kachura Lake">
@@ -55,13 +80,13 @@
         <div class="relative z-10 text-center px-4 max-w-4xl">
             <span class="uppercase tracking-[0.3em] text-orange-400 font-bold text-sm mb-4 block">Feel The Experience</span>
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Explore The Beauty of Gilgit Baltistan With Us</h1>
-            <a href="https://wa.me/923464012004?text=I want to book a tour with Skyline Adventure Tours" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-white hover:text-orange-500 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+            <a href="https://wa.me/923554242143?text=I want to book a tour with Skyline Adventure Tours" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-white hover:text-orange-500 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
                 Book your Tour <i data-lucide="arrow-right"></i>
             </a>
         </div>
     </section>
 
-   <section class="relative z-20 -mt-16 max-w-6xl mx-auto px-4">
+     <section class="relative z-20 -mt-16 max-w-6xl mx-auto px-4">
     <div class="bg-white p-8 rounded-3xl shadow-2xl border border-slate-100">
         <div class="grid md:grid-cols-4 gap-6">
             <div>
@@ -117,24 +142,112 @@
     </div>
 </section>
 
-<script>
-    function checkAvailability() {
-        const service = document.getElementById('serviceSelect').value;
-        const date = document.getElementById('travelDate').value;
-        const persons = document.getElementById('travelers').value;
 
-        if (!service) {
-            alert('Please select a service or tour first.');
-            return;
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Keep your existing checkAvailability and Itinerary functions below
+        function checkAvailability() {
+            const service = document.getElementById('serviceSelect').value;
+            const date = document.getElementById('travelDate').value;
+            const persons = document.getElementById('travelers').value;
+            if (!service) { alert('Please select a service or tour first.'); return; }
+            const message = `Hi! I want to check availability for:%0A- Service: ${service}%0A- Date: ${date || 'Not specified'}%0A- Persons: ${persons || 'Not specified'}`;
+            window.open(`https://wa.me/923554242143?text=${message}`, '_blank');
         }
+    </script>
 
-        // WhatsApp redirect logic
-        const message = `Hi! I want to check availability for:%0A- Service: ${service}%0A- Date: ${date || 'Not specified'}%0A- Persons: ${persons || 'Not specified'}`;
-        const whatsappUrl = `https://wa.me/923464012004?text=${message}`;
-        
-        window.open(whatsappUrl, '_blank');
-    }
-</script>
+<section id="about" class="py-24 px-6 md:px-16 max-w-7xl mx-auto overflow-hidden">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                <img src="img/hero2.jpg" alt="Skyline Adventure Team" class="w-full h-[500px] object-cover">
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-orange-500/10 rounded-full -z-0 blur-3xl"></div>
+            <div class="absolute -top-10 -left-10 text-orange-500/20">
+                <i data-lucide="mountain" class="w-32 h-32"></i>
+            </div>
+            
+            <div class="absolute bottom-10 left-10 z-20 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden sm:block">
+                <div class="flex items-center gap-4">
+                    <span class="text-4xl font-black text-orange-500">10+</span>
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-950">Years of<br>Expertise</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <span class="uppercase tracking-[0.3em] text-orange-500 font-bold text-sm mb-4 block">Our Story</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-blue-950 mb-6 leading-tight">
+                Your Trusted Guide to the <span class="text-orange-500">Roof of the World</span>
+            </h2>
+            <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                At <span class="font-bold text-blue-950">Skyline Adventure Tours</span>, we don't just organize trips; we create lifelong memories. Based in the heart of the North, we specialize in curated expeditions across Gilgit-Baltistan, from the serene lakes of Skardu to the rugged peaks of the Karakoram.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="flex gap-4">
+                    <div class="bg-blue-50 p-3 rounded-xl h-fit">
+                        <i data-lucide="users" class="w-6 h-6 text-blue-900"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950">Local Experts</h4>
+                        <p class="text-sm text-slate-500">Guided by natives who know every hidden trail.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="bg-blue-50 p-3 rounded-xl h-fit">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-blue-900"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950">Safe & Secure</h4>
+                        <p class="text-sm text-slate-500">Top-tier transport and vetted accommodations.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="bg-blue-50 p-3 rounded-xl h-fit">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-blue-900"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950">Custom Plans</h4>
+                        <p class="text-sm text-slate-500">Tailor-made itineraries for families & solo travelers.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="bg-blue-50 p-3 rounded-xl h-fit">
+                        <i data-lucide="heart" class="w-6 h-6 text-blue-900"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-950">Eco-Friendly</h4>
+                        <p class="text-sm text-slate-500">We prioritize sustainable and clean tourism.</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
 
   <section id="tours" class="py-24 px-6 md:px-16 max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -161,7 +274,7 @@
                         <button onclick="openItinerary('skardu-5')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                         <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=Skardu 5 Days" class="flex items-center justify-center gap-2 bg-blue-950 text-white py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">
+                        <a href="https://wa.me/923554242143?text=Skardu 5 Days" class="flex items-center justify-center gap-2 bg-blue-950 text-white py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">
                             Book Now
                         </a>
                     </div>
@@ -183,7 +296,7 @@
                         <button onclick="openItinerary('skardu-hunza-8')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                            <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=Skardu Hunza 8 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
+                        <a href="https://wa.me/923554242143?text=Skardu Hunza 8 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -203,7 +316,7 @@
                         <button onclick="openItinerary('hunza-3')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                            <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=Hunza 3 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
+                        <a href="https://wa.me/923554242143?text=Hunza 3 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -223,7 +336,7 @@
                         <button onclick="openItinerary('fairy-5')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                            <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=Fairy Meadows 5 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
+                        <a href="https://wa.me/923554242143?text=Fairy Meadows 5 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -243,7 +356,7 @@
                         <button onclick="openItinerary('deosai-3')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                            <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=Deosai Hiking 3 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
+                        <a href="https://wa.me/923554242143?text=Deosai Hiking 3 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -263,7 +376,7 @@
                         <button onclick="openItinerary('north-14')" class="flex items-center justify-center gap-2 border border-blue-950 text-blue-950 py-2 rounded-full text-xs font-bold hover:bg-blue-50 transition">
                            <i data-lucide="calendar" class="w-3"></i> Plan Details
                         </button>
-                        <a href="https://wa.me/923464012004?text=North Expedition 14 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
+                        <a href="https://wa.me/923554242143?text=North Expedition 14 Days" class="bg-blue-950 text-white text-center py-2 rounded-full text-xs font-bold hover:bg-orange-500 transition">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -331,7 +444,7 @@
         
         html += `</div>
             <div class="mt-10 flex gap-4">
-                <a href="https://wa.me/923464012004?text=I want to book ${data.title}" class="flex-1 bg-blue-950 text-white text-center py-4 rounded-xl font-bold hover:bg-orange-500 transition shadow-lg">Confirm Booking</a>
+                <a href="https://wa.me/923554242143?text=I want to book ${data.title}" class="flex-1 bg-blue-950 text-white text-center py-4 rounded-xl font-bold hover:bg-orange-500 transition shadow-lg">Confirm Booking</a>
             </div>`;
         
         document.getElementById('modalContent').innerHTML = html;
@@ -543,14 +656,124 @@
     </div>
 </section>
 
-    <footer class="bg-blue-950 text-white pt-20 pb-10 px-6 md:px-16">
+<section class="py-24 px-6 md:px-16 bg-white border-t border-slate-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4">Customer Support Hub</h2>
+            <p class="text-slate-500">Everything you need to know about our services and policies.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button onclick="showInfo('privacy')" id="btn-privacy" class="info-btn active-info-btn px-6 py-3 rounded-xl font-bold transition-all border-2 border-slate-100 hover:border-orange-500">
+                Privacy Policy
+            </button>
+            <button onclick="showInfo('return')" id="btn-return" class="info-btn px-6 py-3 rounded-xl font-bold transition-all border-2 border-slate-100 hover:border-orange-500">
+                Cancellation & Returns
+            </button>
+            <button onclick="showInfo('faq')" id="btn-faq" class="info-btn px-6 py-3 rounded-xl font-bold transition-all border-2 border-slate-100 hover:border-orange-500">
+                FAQs
+            </button>
+        </div>
+
+        <div class="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100 min-h-[300px]">
+            <div id="info-privacy" class="info-content space-y-4">
+                <h3 class="text-2xl font-bold text-blue-950 flex items-center gap-2"><i data-lucide="shield-check" class="text-orange-500"></i> Privacy Policy</h3>
+                <p class="text-slate-600">Your privacy is important to us. We only collect information necessary to process your tour bookings and travel documents.</p>
+                <ul class="list-disc list-inside text-slate-600 space-y-2">
+                    <li>We do not share your personal data with third-party marketing agencies.</li>
+                    <li>Payment information is handled through secure, encrypted gateways.</li>
+                    <li>We only share your CNIC/Passport details with official security checkpoints in North Pakistan as required by law.</li>
+                </ul>
+            </div>
+
+            <div id="info-return" class="info-content hidden space-y-4">
+                <h3 class="text-2xl font-bold text-blue-950 flex items-center gap-2"><i data-lucide="refresh-ccw" class="text-orange-500"></i> Cancellation & Returns</h3>
+                <p class="text-slate-600">We understand plans change. Our refund policy for tour packages is as follows:</p>
+                <div class="grid gap-4">
+                    <div class="p-4 bg-white rounded-xl border-l-4 border-green-500">
+                        <p class="font-bold">15+ Days Before Trip</p>
+                        <p class="text-sm text-slate-500">80% refund of the total booking amount.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border-l-4 border-orange-500">
+                        <p class="font-bold">7-14 Days Before Trip</p>
+                        <p class="text-sm text-slate-500">50% refund of the total booking amount.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border-l-4 border-red-500">
+                        <p class="font-bold">Less than 7 Days</p>
+                        <p class="text-sm text-slate-500">No refunds allowed due to advance hotel/transport bookings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="info-faq" class="info-content hidden space-y-6">
+                <h3 class="text-2xl font-bold text-blue-950 flex items-center gap-2"><i data-lucide="help-circle" class="text-orange-500"></i> Frequently Asked Questions</h3>
+                <div class="space-y-4">
+                    <details class="group bg-white p-4 rounded-xl border border-slate-100" open>
+                        <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                            Is it safe for families and solo female travelers?
+                            <i data-lucide="plus" class="w-4 transition group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-sm text-slate-500 mt-3">Absolutely. Gilgit-Baltistan is one of the safest regions in Pakistan. Our guides are trained to prioritize the safety and comfort of families and solo travelers.</p>
+                    </details>
+                    <details class="group bg-white p-4 rounded-xl border border-slate-100">
+                        <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                            What is the best time to visit?
+                            <i data-lucide="plus" class="w-4 transition group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-sm text-slate-500 mt-3">For lush greenery, May to September. For autumn colors, October is perfect. For snow lovers, December to February is best for Skardu and Hunza.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .active-info-btn {
+        background-color: #172554; /* blue-950 */
+        color: white;
+        border-color: #172554;
+    }
+</style>
+
+<script>
+    function showInfo(type) {
+        // Hide all content
+        document.querySelectorAll('.info-content').forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Remove active class from all buttons
+        document.querySelectorAll('.info-btn').forEach(btn => {
+            btn.classList.remove('active-info-btn');
+        });
+
+        // Show specific content
+        document.getElementById('info-' + type).classList.remove('hidden');
+        
+        // Add active class to clicked button
+        document.getElementById('btn-' + type).classList.add('active-info-btn');
+
+        // Re-init icons for the new content
+        lucide.createIcons();
+    }
+</script>
+
+    <footer id="contact" class="bg-blue-950 text-white pt-20 pb-10 px-6 md:px-16">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
             <div class="col-span-1 md:col-span-1">
-                <div class="text-2xl font-extrabold mb-6">SKYLINE <span class="text-orange-500">ADVENTURE TOURS</span></div>
+                
+        <div class="flex items-center gap-3">
+    <img src="img/favicon.png" alt="Skyline Adventure Tours Logo" class="h-12 md:h-16 w-auto object-contain">
+    <div class="hidden sm:block text-lg md:text-xl font-extrabold tracking-tighter text-blue-950 leading-none">
+        <span class="text-white">SKYLINE</span><br><span class="text-orange-500 text-xs md:text-sm tracking-[0.2em] uppercase">Adventure Tours</span>
+    </div>
+</div>
                 <p class="text-slate-400 leading-relaxed mb-6">Explore North Pakistan’s breathtaking beauty. From Skardu’s peaks to Hunza’s valleys, experience nature like never before.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="bg-white/5 p-3 rounded-full hover:bg-orange-500 transition"><i data-lucide="facebook" class="w-5"></i></a>
+                    <a href="https://www.facebook.com/share/16h8ZVbxQ7/" class="bg-white/5 p-3 rounded-full hover:bg-orange-500 transition"><i data-lucide="facebook" class="w-5"></i></a>
                     <a href="#" class="bg-white/5 p-3 rounded-full hover:bg-orange-500 transition"><i data-lucide="instagram" class="w-5"></i></a>
+                    <a href="https://www.tiktok.com/@sat_skardu?_r=1&_t=ZS-92qqXxRy45U" class="bg-white/5 p-3 rounded-full hover:bg-orange-500 transition"><i data-lucide="music-2" class="w-5"></i></a>
                 </div>
             </div>
             
@@ -567,7 +790,7 @@
             <div>
                 <h4 class="font-bold text-xl mb-6">Quick Links</h4>
                 <ul class="text-slate-400 space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+                    <li><a href="#about" class="hover:text-orange-500">About Us</a></li>
                     <li><a href="#" class="hover:text-orange-500">Privacy Policy</a></li>
                     <li><a href="#" class="hover:text-orange-500">Return Policy</a></li>
                     <li><a href="#" class="hover:text-orange-500">FAQs</a></li>
@@ -578,7 +801,7 @@
                 <h4 class="font-bold text-xl mb-6">Contact Us</h4>
                 <div class="space-y-4 text-sm text-slate-400">
                     <p class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 text-orange-500 flex-shrink-0"></i> Shaheed Jaffar Colony, Shigri Kalan, Skardu, 16100</p>
-                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 text-orange-500 flex-shrink-0"></i> 03464012004</p>
+                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 text-orange-500 flex-shrink-0"></i> 03554242143</p>
                     <p class="flex items-center gap-3"><i data-lucide="mail" class="w-5 text-orange-500 flex-shrink-0"></i> skylineadventuretours@gmail.com</p>
                 </div>
             </div>
@@ -588,7 +811,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/923464012004" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
+    <a href="https://wa.me/923554242143" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
