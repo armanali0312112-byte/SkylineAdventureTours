@@ -23,8 +23,8 @@
 
     <div class="bg-blue-950 text-white py-2 px-6 md:px-16 flex justify-between items-center text-xs md:text-sm">
         <div class="flex gap-4">
-            <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4"></i> 03554242143</span>
-            <span class="hidden md:flex items-center gap-2"><i data-lucide="mail" class="w-4"></i> skylineadventuretours@gmail.com</span>
+            <span class="flex items-center gap-2"><i data-lucide="phone" class="w-4"></i> +923554242143</span>
+            <span class="hidden md:flex items-center gap-2"><i data-lucide="mail" class="w-4"></i> skylineadventuretour@gmail.com</span>
         </div>
 
         <div class="flex gap-4 border-l border-white/20 pl-4">
@@ -86,96 +86,191 @@
         </div>
     </section>
 
-     <section class="relative z-20 -mt-16 max-w-6xl mx-auto px-4">
+<section class="relative z-20 -mt-16 max-w-6xl mx-auto px-4">
     <div class="bg-white p-8 rounded-3xl shadow-2xl border border-slate-100">
-        <div class="grid md:grid-cols-4 gap-6">
+        
+        <div class="text-center mb-8">
+            <h2 class="text-blue-950 font-black text-xl md:text-2xl uppercase tracking-tighter">Beyond Trips & Tours We provide the services of <br>Car Rental,Flight Booking & Hotel Booking.</h2>
+            
+            <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6 mb-8">
             <div>
                 <label class="block text-xs font-black uppercase text-blue-950 mb-2 tracking-widest">Select Service</label>
-                <select id="serviceSelect" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all outline-none">
-                    <option value="" disabled selected>Choose a Service</option>
-                     <optgroup label="Travel Services">
-                        <option value="Car Rental Service">Premium Car Rental (Prado/V8/Hiace)</option>
-                        <option value="Air Ticket Booking">Domestic Air Tickets (PIA/Airblue)</option>
-                    </optgroup>
-                    <optgroup label="Tour Packages">
-                        <option value="Skardu Tour 5 Days">Skardu Tour (5 Days)</option>
-                        <option value="Skardu Hunza 8 Days">Skardu + Hunza (8 Days)</option>
-                        <option value="Hunza Khunjerab 3 Days">Hunza + Khunjerab (3 Days)</option>
-                        <option value="Fairy Meadows 5 Days">Fairy Meadows (5 Days)</option>
-                        <option value="Deosai Hiking 3 Days">Deosai Hiking (3 Days)</option>
-                        <option value="North Expedition 14 Days">Grand North Expedition (14 Days)</option>
-                    </optgroup>
-                   
+                <select id="mainService" onchange="toggleServiceDetails()" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold focus:ring-2 focus:ring-orange-500 outline-none transition-all">
+                    <option value="" disabled selected>Choose Service</option>
+                    <option value="car">Car Rental (Fleet)</option>
+                    <option value="flight">Flight Booking</option>
+                    <option value="hotel">Hotel Booking</option>
                 </select>
             </div>
-
             <div>
-                <label class="block text-xs font-black uppercase text-blue-950 mb-2 tracking-widest">Planned Date</label>
-                <input type="date" id="travelDate" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold focus:ring-2 focus:ring-orange-500 outline-none">
+                <label class="block text-xs font-black uppercase text-blue-950 mb-2 tracking-widest">Start Date</label>
+                <input type="date" id="startDate" onchange="calculateTotal()" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold outline-none">
             </div>
-
+            <div>
+                <label class="block text-xs font-black uppercase text-blue-950 mb-2 tracking-widest">End Date</label>
+                <input type="date" id="endDate" onchange="calculateTotal()" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold outline-none">
+            </div>
             <div>
                 <label class="block text-xs font-black uppercase text-blue-950 mb-2 tracking-widest">No. of Persons</label>
-                <div class="relative">
-                    <input type="number" id="travelers" min="1" placeholder="Total Persons" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold focus:ring-2 focus:ring-orange-500 outline-none">
+                <input type="number" id="personCount" placeholder="Total Persons" class="w-full bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold outline-none">
+            </div>
+        </div>
+
+        <div id="serviceDetailsArea" class="hidden border-t border-slate-100 pt-8">
+            
+            <div id="carFleet" class="hidden">
+                <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="car" class="text-orange-500"></i> Select Your Vehicle</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Toyota Prado', 10000)">
+                        <img src="img/up model.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
+                        <h4 class="font-bold text-blue-950">Toyota Prado TZ (Up Model)</h4>
+                        <p class="text-orange-600 font-bold">Rs. 10,000 / Day</p>
+                    </div>
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Hiace Grand Cabin', 8000)">
+                        <img src="img/downmodel.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
+                        <h4 class="font-bold text-blue-950">Toyota Prado TZ (Down Model)</h4>
+                        <p class="text-orange-600 font-bold">Rs. 8,000 / Day</p>
+                    </div>
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Land Cruiser V8', 6000)">
+                        <img src="img/corola g.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
+                        <h4 class="font-bold text-blue-950">Toyota Corolla G</h4>
+                        <p class="text-orange-600 font-bold">Rs. 6,000 / Day</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex items-end">
-                <button onclick="checkAvailability()" class="w-full bg-blue-950 text-white py-3.5 rounded-xl font-bold hover:bg-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all duration-300 flex items-center justify-center gap-2">
-                    <i data-lucide="search" class="w-4 h-4"></i> Check & Book Now
+            <div id="flightForm" class="hidden">
+                <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="plane" class="text-orange-500"></i> Domestic Flights</h3>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/3">
+                        <img src="img/airport.jpg" class="rounded-2xl shadow-lg mb-4">
+                        <p class="text-xs text-slate-500 italic">We provide instant booking for PIA & Airblue to Islamabad, Skardu and Gilgit.</p>
+                    </div>
+                    <div class="flex-1 grid md:grid-cols-2 gap-4 w-full">
+                        <input type="text" id="flightName" placeholder="Full Name (CNIC)" class="bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm outline-none">
+                        <input type="text" id="flightCNIC" placeholder="CNIC Number" class="bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm outline-none">
+                        <select id="flightRoute" class="bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm outline-none col-span-full">
+                            <option>Islamabad to Skardu</option>
+                            <option>Skardu to Islamabad</option>
+                            <option>Islamabad to Gilgit</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hotelOptions" class="hidden">
+                <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="hotel" class="text-orange-500"></i> Luxury Stays/ Choose Your Room!</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="roomType" value="Single Bed" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
+                            <h4 class="font-bold text-center">Single Bed Room</h4>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="roomType" value="Double Bed" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
+                            <h4 class="font-bold text-center">Double Bed Room</h4>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="roomType" value="Triple Bed / Family" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
+                            <h4 class="font-bold text-center">Triple Bed /Family Room</h4>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <div>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Booking Status</p>
+                    <h2 id="displayTotal" class="text-xl font-black text-blue-950">Fill details above</h2>
+                </div>
+                <button onclick="sendBookingToWhatsapp()" class="w-full md:w-auto bg-green-600 text-white px-12 py-4 rounded-xl font-bold hover:bg-green-700 transition shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle"></i> Complete Booking
                 </button>
-            </div>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-6 mt-6 border-t border-slate-50 pt-4">
-            <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
-                <i data-lucide="check-circle" class="w-3 text-green-500"></i> Instant Confirmation
-            </div>
-            <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
-                <i data-lucide="shield-check" class="w-3 text-blue-500"></i> Secure Payments
-            </div>
-            <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
-                <i data-lucide="headphones" class="w-3 text-orange-500"></i> 24/7 Local Support
             </div>
         </div>
     </div>
 </section>
 
+<script>
+    let selectedVehicleName = "";
+    let selectedPricePerDay = 0;
 
-    <script>
-        // Lucide Icons Initialization
-        lucide.createIcons();
+    function toggleServiceDetails() {
+        const service = document.getElementById('mainService').value;
+        const area = document.getElementById('serviceDetailsArea');
+        const totalDisplay = document.getElementById('displayTotal');
+        
+        area.classList.remove('hidden');
+        document.getElementById('carFleet').classList.add('hidden');
+        document.getElementById('flightForm').classList.add('hidden');
+        document.getElementById('hotelOptions').classList.add('hidden');
 
-        // Hamburger Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-
-        const closeMenu = () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        };
-
-        closeBtn.addEventListener('click', closeMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-        // Keep your existing checkAvailability and Itinerary functions below
-        function checkAvailability() {
-            const service = document.getElementById('serviceSelect').value;
-            const date = document.getElementById('travelDate').value;
-            const persons = document.getElementById('travelers').value;
-            if (!service) { alert('Please select a service or tour first.'); return; }
-            const message = `Hi! I want to check availability for:%0A- Service: ${service}%0A- Date: ${date || 'Not specified'}%0A- Persons: ${persons || 'Not specified'}`;
-            window.open(`https://wa.me/923554242143?text=${message}`, '_blank');
+        if(service === 'car') {
+            document.getElementById('carFleet').classList.remove('hidden');
+            totalDisplay.innerText = "Please select a vehicle";
+        } else if(service === 'flight') {
+            document.getElementById('flightForm').classList.remove('hidden');
+            totalDisplay.innerText = "Flight Reservation";
+        } else if(service === 'hotel') {
+            document.getElementById('hotelOptions').classList.remove('hidden');
+            totalDisplay.innerText = "Hotel Accommodation";
         }
-    </script>
+    }
+
+    function selectVehicle(name, price) {
+        selectedVehicleName = name;
+        selectedPricePerDay = price;
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        const service = document.getElementById('mainService').value;
+        if (service !== 'car') return;
+
+        const start = new Date(document.getElementById('startDate').value);
+        const end = new Date(document.getElementById('endDate').value);
+        const display = document.getElementById('displayTotal');
+        
+        if (start && end && end >= start && selectedPricePerDay > 0) {
+            const diffDays = Math.max(1, Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24)));
+            const total = diffDays * selectedPricePerDay;
+            display.innerText = `Total: Rs. ${total.toLocaleString()} for ${diffDays} Day(s)`;
+        } else if (selectedPricePerDay > 0) {
+            display.innerText = `Rate: Rs. ${selectedPricePerDay.toLocaleString()} / Day`;
+        }
+    }
+
+    function sendBookingToWhatsapp() {
+        const service = document.getElementById('mainService').value;
+        const start = document.getElementById('startDate').value;
+        const end = document.getElementById('endDate').value;
+        const persons = document.getElementById('personCount').value;
+        
+        let message = `Here are my booking details:`;
+        message += `*Service:* ${service.toUpperCase()}%0A*Persons:* ${persons || 'N/A'}%0A*Dates:* ${start || 'N/A'} to ${end || 'N/A'}%0A`;
+
+        if (service === 'car') {
+            message += `*Vehicle:* ${selectedVehicleName}%0A*Price:* ${document.getElementById('displayTotal').innerText}`;
+        } else if (service === 'flight') {
+            message += `*Name:* ${document.getElementById('flightName').value}%0A*CNIC:* ${document.getElementById('flightCNIC').value}%0A*Route:* ${document.getElementById('flightRoute').value}`;
+        } else if (service === 'hotel') {
+            const room = document.querySelector('input[name="roomType"]:checked')?.value || 'Not selected';
+            message += `*Room Type:* ${room}`;
+        }
+
+        window.open(`https://wa.me/923464012004?text=${message}`, '_blank');
+    }
+</script>
 
 <section id="about" class="py-24 px-6 md:px-16 max-w-7xl mx-auto overflow-hidden">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -656,7 +751,7 @@
     </div>
 </section>
 
-<section class="py-24 px-6 md:px-16 bg-white border-t border-slate-100">
+<section id="customer" class="py-24 px-6 md:px-16 bg-white border-t border-slate-100">
     <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4">Customer Support Hub</h2>
@@ -791,9 +886,9 @@
                 <h4 class="font-bold text-xl mb-6">Quick Links</h4>
                 <ul class="text-slate-400 space-y-4 text-sm">
                     <li><a href="#about" class="hover:text-orange-500">About Us</a></li>
-                    <li><a href="#" class="hover:text-orange-500">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-orange-500">Return Policy</a></li>
-                    <li><a href="#" class="hover:text-orange-500">FAQs</a></li>
+                    <li><a href="#customer" class="hover:text-orange-500">Privacy Policy</a></li>
+                    <li><a href="#customer" class="hover:text-orange-500">Return Policy</a></li>
+                    <li><a href="#customer" class="hover:text-orange-500">FAQs</a></li>
                 </ul>
             </div>
 
@@ -801,13 +896,13 @@
                 <h4 class="font-bold text-xl mb-6">Contact Us</h4>
                 <div class="space-y-4 text-sm text-slate-400">
                     <p class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 text-orange-500 flex-shrink-0"></i> Shaheed Jaffar Colony, Shigri Kalan, Skardu, 16100</p>
-                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 text-orange-500 flex-shrink-0"></i> 03554242143</p>
-                    <p class="flex items-center gap-3"><i data-lucide="mail" class="w-5 text-orange-500 flex-shrink-0"></i> skylineadventuretours@gmail.com</p>
+                    <p class="flex items-center gap-3"><i data-lucide="phone" class="w-5 text-orange-500 flex-shrink-0"></i> +923554242143</p>
+                    <p class="flex items-center gap-3"><i data-lucide="mail" class="w-5 text-orange-500 flex-shrink-0"></i> skylineadventuretour@gmail.com</p>
                 </div>
             </div>
         </div>
         <div class="text-center pt-8 text-slate-500 text-sm">
-            Copyright © 2026. All rights reserved | Developed by <a style="color: white;" href="https://zulqarnainabbass.com/">ZA Digital Agency</a>
+            Copyright © 2026. All rights reserved | Developed by <a style="color: white;" href="https://armanali0312112-byte.github.io/Mubarak-Ali/">Mubarak Ali</a>
         </div>
     </footer>
 
