@@ -90,8 +90,7 @@
     <div class="bg-white p-8 rounded-3xl shadow-2xl border border-slate-100">
         
         <div class="text-center mb-8">
-            <h2 class="text-blue-950 font-black text-xl md:text-2xl uppercase tracking-tighter">Beyond Trips & Tours We provide the services of <br>Car Rental,Flight Booking & Hotel Booking.</h2>
-            
+            <h2 class="text-blue-950 font-black text-xl md:text-2xl uppercase tracking-tighter">Beyond Trips & Tours We provide the services of <br>Car Rental, Flight Booking & Hotel Booking.</h2>
             <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
         </div>
 
@@ -103,6 +102,7 @@
                     <option value="car">Car Rental (Fleet)</option>
                     <option value="flight">Flight Booking</option>
                     <option value="hotel">Hotel Booking</option>
+                    <option value="tours">Tour Packages</option>
                 </select>
             </div>
             <div>
@@ -124,17 +124,17 @@
             <div id="carFleet" class="hidden">
                 <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="car" class="text-orange-500"></i> Select Your Vehicle</h3>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Toyota Prado', 10000)">
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Toyota Prado TZ (Up Model)', 10000)">
                         <img src="img/up model.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
                         <h4 class="font-bold text-blue-950">Toyota Prado TZ (Up Model)</h4>
                         <p class="text-orange-600 font-bold">Rs. 10,000 / Day</p>
                     </div>
-                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Hiace Grand Cabin', 8000)">
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Toyota Prado TZ (Down Model)', 8000)">
                         <img src="img/downmodel.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
                         <h4 class="font-bold text-blue-950">Toyota Prado TZ (Down Model)</h4>
                         <p class="text-orange-600 font-bold">Rs. 8,000 / Day</p>
                     </div>
-                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Land Cruiser V8', 6000)">
+                    <div class="border-2 border-slate-100 rounded-2xl p-4 hover:border-orange-500 transition cursor-pointer bg-white" onclick="selectVehicle('Toyota Corolla G', 6000)">
                         <img src="img/corola g.jpg" class="w-full h-32 object-cover rounded-xl mb-3">
                         <h4 class="font-bold text-blue-950">Toyota Corolla G</h4>
                         <p class="text-orange-600 font-bold">Rs. 6,000 / Day</p>
@@ -147,7 +147,7 @@
                 <div class="flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-1/3">
                         <img src="img/airport.jpg" class="rounded-2xl shadow-lg mb-4">
-                        <p class="text-xs text-slate-500 italic">We provide instant booking for PIA & Airblue to Islamabad, Skardu and Gilgit.</p>
+                        <p class="text-xs text-slate-500 italic">Instant booking for PIA & Airblue to Islamabad, Skardu, Gilgit, Lahore and Karachi.</p>
                     </div>
                     <div class="flex-1 grid md:grid-cols-2 gap-4 w-full">
                         <input type="text" id="flightName" placeholder="Full Name (CNIC)" class="bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm outline-none">
@@ -156,35 +156,61 @@
                             <option>Islamabad to Skardu</option>
                             <option>Skardu to Islamabad</option>
                             <option>Islamabad to Gilgit</option>
+                            <option>Karachi to Skardu</option>
+                            <option>Skardu to Karachi</option>
+                            <option>Lahore to Skardu</option>
+                            <option>Skardu to Lahore</option>
                         </select>
                     </div>
                 </div>
             </div>
 
             <div id="hotelOptions" class="hidden">
-                <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="hotel" class="text-orange-500"></i> Luxury Stays/ Choose Your Room!</h3>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-blue-950 font-bold flex items-center gap-2"><i data-lucide="hotel" class="text-orange-500"></i> Choose Your Room Type</h3>
+                    <div class="flex items-center gap-2">
+                        <label class="text-xs font-bold text-blue-950 uppercase">Rooms Needed:</label>
+                        <input type="number" id="roomCount" value="1" min="1" class="w-16 bg-slate-50 border-2 border-slate-100 rounded-lg p-1 text-center outline-none">
+                    </div>
+                </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <label class="cursor-pointer group">
-                        <input type="radio" name="roomType" value="Single Bed" class="hidden peer">
-                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                        <input type="radio" name="roomType" value="Standard Room" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition bg-white h-full">
                             <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
-                            <h4 class="font-bold text-center">Single Bed Room</h4>
+                            <h4 class="font-bold text-center text-blue-950">Standard Room</h4>
+                            <p class="text-center text-orange-600 text-sm font-bold">Starting from Rs. 8,000</p>
                         </div>
                     </label>
                     <label class="cursor-pointer group">
-                        <input type="radio" name="roomType" value="Double Bed" class="hidden peer">
-                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                        <input type="radio" name="roomType" value="Deluxe Room" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition bg-white h-full">
                             <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
-                            <h4 class="font-bold text-center">Double Bed Room</h4>
+                            <h4 class="font-bold text-center text-blue-950">Deluxe Room</h4>
+                            <p class="text-center text-orange-600 text-sm font-bold">Starting from Rs. 15,000</p>
                         </div>
                     </label>
                     <label class="cursor-pointer group">
-                        <input type="radio" name="roomType" value="Triple Bed / Family" class="hidden peer">
-                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition">
+                        <input type="radio" name="roomType" value="Executive Room" class="hidden peer">
+                        <div class="border-2 border-slate-100 rounded-2xl p-4 peer-checked:border-orange-500 transition bg-white h-full">
                             <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=300" class="w-full h-32 object-cover rounded-xl mb-3">
-                            <h4 class="font-bold text-center">Triple Bed /Family Room</h4>
+                            <h4 class="font-bold text-center text-blue-950">Executive Room</h4>
+                            <p class="text-center text-orange-600 text-sm font-bold">Starting from Rs. 35,000</p>
                         </div>
                     </label>
+                </div>
+            </div>
+
+            <div id="tourOptions" class="hidden">
+                <h3 class="text-blue-950 font-bold mb-6 flex items-center gap-2"><i data-lucide="map" class="text-orange-500"></i> Select Tour Package</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <select id="tourSelect" class="bg-slate-50 border-2 border-slate-100 rounded-xl p-3 text-sm font-semibold outline-none col-span-full">
+                        <option value="Skardu Tour (5 Days)">Skardu Tour (5 Days)</option>
+                        <option value="Skardu + Hunza Tour">Skardu + Hunza Tour (8 Days)</option>
+                        <option value="Hunza + Khunjerab Tour">Hunza + Khunjerab Tour (3Days)</option>
+                        <option value="Fairy Meadows">Fairy Meadows (5 Days)</option>
+                        <option value="Deosai Hiking">Deosai Hiking</option>
+                    </select>
                 </div>
             </div>
 
@@ -214,6 +240,7 @@
         document.getElementById('carFleet').classList.add('hidden');
         document.getElementById('flightForm').classList.add('hidden');
         document.getElementById('hotelOptions').classList.add('hidden');
+        document.getElementById('tourOptions').classList.add('hidden');
 
         if(service === 'car') {
             document.getElementById('carFleet').classList.remove('hidden');
@@ -224,6 +251,9 @@
         } else if(service === 'hotel') {
             document.getElementById('hotelOptions').classList.remove('hidden');
             totalDisplay.innerText = "Hotel Accommodation";
+        } else if(service === 'tours') {
+            document.getElementById('tourOptions').classList.remove('hidden');
+            totalDisplay.innerText = "Tour Package Selection";
         }
     }
 
@@ -257,7 +287,7 @@
         const persons = document.getElementById('personCount').value;
         
         let message = `Here are my booking details:`;
-        message += `*Service:* ${service.toUpperCase()}%0A*Persons:* ${persons || 'N/A'}%0A*Dates:* ${start || 'N/A'} to ${end || 'N/A'}%0A`;
+        message += `%0A*Service:* ${service.toUpperCase()}%0A*Persons:* ${persons || 'N/A'}%0A*Dates:* ${start || 'N/A'} to ${end || 'N/A'}%0A`;
 
         if (service === 'car') {
             message += `*Vehicle:* ${selectedVehicleName}%0A*Price:* ${document.getElementById('displayTotal').innerText}`;
@@ -265,10 +295,14 @@
             message += `*Name:* ${document.getElementById('flightName').value}%0A*CNIC:* ${document.getElementById('flightCNIC').value}%0A*Route:* ${document.getElementById('flightRoute').value}`;
         } else if (service === 'hotel') {
             const room = document.querySelector('input[name="roomType"]:checked')?.value || 'Not selected';
-            message += `*Room Type:* ${room}`;
+            const qty = document.getElementById('roomCount').value;
+            message += `*Room Type:* ${room}%0A*No. of Rooms:* ${qty}`;
+        } else if (service === 'tours') {
+            const tour = document.getElementById('tourSelect').value;
+            message += `*Package:* ${tour}`;
         }
 
-        window.open(`https://wa.me/923464012004?text=${message}`, '_blank');
+        window.open(`https://wa.me/923554242143?text=${message}`, '_blank');
     }
 </script>
 
@@ -552,6 +586,52 @@
         document.body.style.overflow = 'auto'; // Re-enable scroll
     }
 </script>
+<section class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-blue-950 font-black text-3xl md:text-4xl uppercase tracking-tighter mb-4">Why Choose Us</h2>
+            <p class="text-slate-600 font-medium max-w-2xl mx-auto">We go above and beyond to ensure your journey through the north is comfortable, safe, and unforgettable.</p>
+            <div class="w-24 h-1.5 bg-orange-500 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="headphones" class="text-blue-600 w-8 h-8"></i>
+                </div>
+                <h3 class="text-blue-950 font-bold text-xl mb-3">24/7 Support</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Our team is always awake. Whether it's a midnight query or a travel emergency, we are just one call away.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="map-pin" class="text-orange-600 w-8 h-8"></i>
+                </div>
+                <h3 class="text-blue-950 font-bold text-xl mb-3">Local Expertise</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Born and raised in the mountains, we know the hidden gems and the best routes that others often miss.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="users" class="text-green-600 w-8 h-8"></i>
+                </div>
+                <h3 class="text-blue-950 font-bold text-xl mb-3">Experienced Guides</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Our professional guides are not just experts in history; they are trained for high-altitude safety and comfort.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="shield-check" class="text-red-600 w-8 h-8"></i>
+                </div>
+                <h3 class="text-blue-950 font-bold text-xl mb-3">Security Oriented</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Your safety is our priority. From vehicle maintenance to secure hotel choices, we leave nothing to chance.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
    <section class="bg-slate-100 py-24 px-6 overflow-hidden">
     <div class="max-w-7xl mx-auto">
